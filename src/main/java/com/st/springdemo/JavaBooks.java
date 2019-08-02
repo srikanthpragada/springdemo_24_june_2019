@@ -3,13 +3,15 @@ package com.st.springdemo;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-@Component 
+// @Component 
+// @Scope(scopeName="prototype")
 public class JavaBooks implements Books {
 
 	public JavaBooks() {
-		System.out.println("JavaBook()");
+		System.out.println("JavaBooks()");
 	}
 	
 	@Override

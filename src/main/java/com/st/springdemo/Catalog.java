@@ -7,8 +7,12 @@ import org.springframework.stereotype.Component;
 @Component 
 public class Catalog {
 	@Autowired
-	// @Qualifier("springBooks")
+	@Qualifier("springBooks")
 	private Books catalog;
+	
+	@Autowired
+	private MessagePrinter printer;
+	
 
 	public Catalog() {
 		System.out.println("Catalog()");
