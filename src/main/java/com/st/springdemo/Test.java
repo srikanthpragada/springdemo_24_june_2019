@@ -4,9 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-// @Component 
+@Component 
 public class Test  implements CommandLineRunner { 	
-@Autowired 
+    @Autowired 
     Catalog cat;
     
 	public Test() {
@@ -15,6 +15,7 @@ public class Test  implements CommandLineRunner {
 
 	public void run(String... args) throws Exception {
 		cat.print(); 
+		cat.printUpper();
 	}
   
 }

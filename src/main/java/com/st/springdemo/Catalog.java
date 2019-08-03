@@ -30,4 +30,9 @@ public class Catalog {
 		for(String b : catalog.getBooks())
 			System.out.println(b);
 	}
+	
+	public void printUpper() {
+		for(String b : catalog.getBooks())
+			System.out.println(b.toUpperCase());
+	}
 }
