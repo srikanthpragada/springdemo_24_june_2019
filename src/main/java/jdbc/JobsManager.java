@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 @Component 
-public class JobsManager  {
+public class JobsManager implements CommandLineRunner {
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 
@@ -106,6 +106,7 @@ public class JobsManager  {
 		// listJobTitles();
 		// updateMinSalary();
 		try {
+          System.out.println("Updating salaries!");	      		
 		  updateTwo(110,320);
 		  System.out.println("Operation Completed!");
 		}

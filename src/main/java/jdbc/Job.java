@@ -4,14 +4,13 @@ public class Job {
 	private String id, title;
 
 	public Job() {
-		
 	}
-	
-	public Job(String id,String title) {
+
+	public Job(String id, String title) {
 		this.id = id;
 		this.title = title;
 	}
-	
+
 	public String getId() {
 		return id;
 	}

@@ -9,6 +9,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class TestJDBC implements CommandLineRunner {
 	@Autowired
 	JobsManager jobs;
+	
+	@Autowired
+	SJIDemo sji;
 
 	public static void main(String[] args) {
 		SpringApplication.run(TestJDBC.class, args);
@@ -18,7 +21,9 @@ public class TestJDBC implements CommandLineRunner {
 	public void run(String... args) {
         // jobs.updateTwo(120, 330);
 		// jobs.showJobCount();
-        jobs.updateMinSalary();
+        // jobs.updateMinSalary();
+		// jobs.listJobs();
+		// sji.add();
 	}
 
 }
