@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class TestJDBC implements CommandLineRunner {
 	@Autowired
 	JobsManager jobs;
-	
+
 	@Autowired
 	SJIDemo sji;
 
@@ -17,13 +17,20 @@ public class TestJDBC implements CommandLineRunner {
 		SpringApplication.run(TestJDBC.class, args);
 	}
 
-		
 	public void run(String... args) {
-        // jobs.updateTwo(120, 330);
+		// jobs.updateTwo(120, 330);
 		// jobs.showJobCount();
-        // jobs.updateMinSalary();
+		// jobs.updateMinSalary();
 		// jobs.listJobs();
 		// sji.add();
+
+		try {
+			System.out.println("Updating salaries!");
+			jobs.updateTwo(310, 111);
+			System.out.println("Operation Completed!");
+		} catch (Exception ex) {
+			System.out.println("Operation Failed");
+		}
 	}
 
 }

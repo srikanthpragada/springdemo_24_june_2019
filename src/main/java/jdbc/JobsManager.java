@@ -74,7 +74,8 @@ public class JobsManager implements CommandLineRunner {
 
 	@Transactional(propagation = Propagation.REQUIRES_NEW)
 	public void updateTwo(int e1,int e2)  {
-		TransactionStatus status =	TransactionAspectSupport.currentTransactionStatus();
+		TransactionStatus status =	
+				TransactionAspectSupport.currentTransactionStatus();
 		System.out.println("Transaction Begins");
 		
 		int count = jdbcTemplate.update
@@ -83,18 +84,17 @@ public class JobsManager implements CommandLineRunner {
 		if (count == 0) {
 			//throw new RuntimeException();
 			status.setRollbackOnly();
-			// return;
+			return;
 		}
 		
 		System.out.println("First Update Done");
 
 		count = jdbcTemplate.update
-  	       ("update employees set salary = salary + 2000 where employee_id = ?",
-		   e2);
+  	       ("update employees set salary = salary + 2000 where employee_id = ?", e2);
 	    if (count == 0)
 	    	status.setRollbackOnly();
 		    // throw new RuntimeException();
-	    System.out.println("New Transaction " + status.isNewTransaction());
+	    System.out.println("New Transaction : " + status.isNewTransaction());
 	    System.out.println("Rollback ? " + status.isRollbackOnly());
 	    System.out.println("Update Ends");
 	}
@@ -105,15 +105,6 @@ public class JobsManager implements CommandLineRunner {
 		// listJobs2();
 		// listJobTitles();
 		// updateMinSalary();
-		try {
-          System.out.println("Updating salaries!");	      		
-		  updateTwo(110,320);
-		  System.out.println("Operation Completed!");
-		}
-		catch(Exception ex) {
-		  System.out.println("Operation Failed");
-		}
-
 	}
 
 }
