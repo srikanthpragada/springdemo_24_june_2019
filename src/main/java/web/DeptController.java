@@ -1,28 +1,17 @@
 package web;
 
-import java.util.Optional;
-
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import jpa.Department;
-import jpa.DeptRepo;
-
-// @Controller
+ 
+@Controller
 public class DeptController {
-
 	@Autowired
 	private DeptRepo depts;
 
+	/* 
 	@RequestMapping("/dept")
 	public String getDept(@RequestParam("id") int id, ModelMap model) {
 		Optional<Department> dept = depts.findById(id);
@@ -34,12 +23,14 @@ public class DeptController {
 		return "deptinfo";
 	}
 
+*/
 	@RequestMapping("/deptlist")
 	public String getDeptList(ModelMap model) {
 		model.addAttribute("depts", depts.findAll());
 		return "deptlist";
 	}
 
+/*	
 	@RequestMapping("/adddept")
 	public String addDept(ModelMap model) {
 		Department d = new Department();
@@ -92,6 +83,6 @@ public class DeptController {
 			return "edit_dept";
 		}
 	}
-
+*/
 
 }

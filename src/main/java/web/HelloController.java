@@ -14,6 +14,6 @@ public class HelloController {
 	public String greet(@RequestParam(name = "user") String user, ModelMap model) {
 		model.put("user", user);
 		model.put("now", LocalDateTime.now().toString());
-		return "greet";
+		return "greet"; // greet.jsp
 	}
 }
