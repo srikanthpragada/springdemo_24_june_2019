@@ -4,8 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-//import javax.validation.constraints.Min;
-//import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "departments")
@@ -15,6 +14,7 @@ public class Department {
 	private int id;
 
 	@Column(name = "department_name")
+	@Size(min = 4,max=20, message = "Department name must be 4-20 chars")
 	private String name;
 
 	public int getId() {

@@ -5,9 +5,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Department Info</title>
+<title>Delete Dept</title>
 </head>
 <body>
-<h2>${message}</h2>
+<h2>${error}</h2>
 </body>
 </html>
