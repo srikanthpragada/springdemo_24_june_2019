@@ -94,7 +94,11 @@ public class DeptController {
 	@RequestMapping(value = "/editdept/{id}", method = RequestMethod.POST)
 	public String updateDept(@PathVariable("id") int id, Department d, ModelMap model) {
 		try {
-			depts.save(d);
+			Optional<Department> dept = depts.findById(d.getId());
+			if (dept.isPresent())
+			      depts.save(d); // Update
+			else
+				  throw new Exception("Invalid Department Id");
 			return "redirect:/deptlist";
 		} catch (Exception ex) {
 			model.addAttribute("dept", d);

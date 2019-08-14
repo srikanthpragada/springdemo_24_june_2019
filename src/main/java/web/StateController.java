@@ -12,7 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-// @Controller
+@Controller
 public class StateController {
 	@RequestMapping("/cookies")
 	@ResponseBody
@@ -22,6 +22,8 @@ public class StateController {
 		for (Cookie c : req.getCookies())
 			st += c.getName() + " - " + c.getValue() + "<p/>";
 
+		// Create session/browser based cookie 
+		
 		Cookie c = new Cookie("lastaccess", 
 				LocalDateTime.now().toString());
 		
@@ -30,8 +32,9 @@ public class StateController {
 		System.out.println(s.getId());
 		
 		ServletContext ctx = s.getServletContext();
-		
 		s.setAttribute("name", this.getClass().getName());
+		
+		System.out.println(this.getClass().getName());
 		
 		return st;
 	}
