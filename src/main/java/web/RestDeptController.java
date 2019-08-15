@@ -38,6 +38,8 @@ public class RestDeptController {
 	@PostMapping() // For Http POST request
 	public Department addDept(Department dept) {
 		try {
+			// check whether deptid is already present
+			// if so, throw exception 
 			deptRepo.save(dept);
 			return dept;
 		} catch (Exception ex) {
@@ -62,7 +64,7 @@ public class RestDeptController {
 		}
 	}
 
-	@PutMapping("/{id}") // For Http DELETE request
+	@PutMapping("/{id}") // For Http PUT request
 	public void updateDept(@PathVariable("id") int id, Department newDept) {
 		Optional<Department> dept = deptRepo.findById(id);
 		if (dept.isPresent()) {

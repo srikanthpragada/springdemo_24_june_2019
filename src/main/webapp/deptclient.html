@@ -42,9 +42,10 @@
 			success : function() {
 				alert("Dept has been deleted successfully!")
 			},
-			error : function(xhr, s, msg) {
+			error : function(xhr, s) {
 				console.log("Status : " + s)
-				console.log("Message : " + msg)
+				msg = xhr.responseJSON.message
+				console.log("Message : " + msg);
 				alert("Dept was not deleted due to error : " + msg)
 			}
 		});
@@ -65,6 +66,26 @@
 			}
 		});
 	}
+	
+	function updateDept() {
+		// Make PUT request 
+		$.ajax({
+			url : "/rest/dept/" + $("#deptid").val(),
+			type : "put",
+			success : function() {
+				alert("Dept has been updated successfully!")
+			},
+			error : function() {
+				alert("Dept was not updated due to error!")
+			},
+			data : {
+				"id" : $("#deptid").val(),
+				"name" : $("#deptname").val()
+			}
+		});
+	}
+	
+	
 </script>
 </head>
 <body>
